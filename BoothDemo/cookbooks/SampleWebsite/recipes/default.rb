@@ -6,15 +6,20 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+file "c:\\demoweb\\test.txt" do
+	content 'Hello World Chef'
+end
 
 dsc_script 'DemoFile' do 
-code <<-DEMOSCRIPT
+code <<-EOH
   File TestFile
   {
-    Ensure ="Present"
-    DestinationPath ="c:\\demowebsite\\TestFile.txt"
-    Contents = "Hello World from dsc_script"
+    Ensure = "Present"
+    DestinationPath = "c:\\demoweb\\TestFile.txt"
+    Contents = "Hello World dsc_script"
   }
-
-DEMOSCRIPT
+EOH
 end
+
+
+	
