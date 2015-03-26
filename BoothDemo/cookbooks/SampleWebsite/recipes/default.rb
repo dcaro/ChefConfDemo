@@ -7,7 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 file "c:\\demoweb\\test.txt" do
-	content 'Hello World Chef'
+	content "Hello World Chef"
+  action :create
 end
 
 dsc_script 'DemoFile' do 
