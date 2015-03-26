@@ -13,7 +13,7 @@ code <<-DEMOSCRIPT
   {
     Ensure ="Present"
     DestinationPath ="c:\\demowebsite\\TestFile.txt"
-    Content = "Hello World from dsc_script"
+    Contents = "Hello World from dsc_script"
   }
 
 DEMOSCRIPT
