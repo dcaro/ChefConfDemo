@@ -14,7 +14,7 @@ code <<-DEMOSCRIPT
   File TestFile
   {
     Ensure ="Present"
-    DestinationPath ="c:\\demo\\TestFile.txt"
+    DestinationPath ="c:\\demoscript\\TestFile.txt"
     Content = "Hello World from dsc_script"
   }
 
