@@ -1,1 +1,0 @@
-PS C:\Demo\ChefConfDemo\BoothDemo> chef-client -z -o 'SampleWebsite'

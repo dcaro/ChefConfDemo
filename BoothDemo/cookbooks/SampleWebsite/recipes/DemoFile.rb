@@ -6,17 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-file "c:\\demoweb\\test.txt" do
-	content "Hello World Chef"
-  action :create
-end
+
 
 dsc_script 'DemoFile' do 
 code <<-EOH
   File TestFile
   {
     Ensure = "Present"
-    DestinationPath = "c:\\demoweb\\TestFile.txt"
+    DestinationPath = "c:\\boothdemo\\TestFile.txt"
     Contents = "Hello World dsc_script"
   }
 EOH
