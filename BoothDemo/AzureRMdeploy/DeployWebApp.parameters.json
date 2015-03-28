@@ -1,0 +1,112 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "West US"
+        },
+        "newStorageAccountName": {
+            "value": "chefboothstore1"
+        },
+        "storageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "publicIPAddressName": {
+            "value": "chefboothip"
+        },
+        "publicIPAddressType": {
+            "value": "Dynamic"
+        },
+        "vmStorageAccountContainerName": {
+            "value": "vhds"
+        },
+        "vmName": {
+            "value": "boothvm1"
+        },
+        "vmSize": {
+            "value": "Standard_A1"
+        },
+        "vmSourceImageName": {
+            "value": "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB"
+        },
+        "adminUserName": {
+            "value": "azureuser"
+        },
+        "adminPassword": {
+            "value": "Passw0rd1!"
+        },
+        "virtualNetworkName": {
+            "value": "chefboothnet"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetName": {
+            "value": "Subnet-1"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "dnsName": {
+            "value": "chefboothvm"
+        },
+        "subscriptionId": {
+            "value": "0c3a2f71-4128-4509-8719-3b16f291ad5f"
+        },
+        "nicName": {
+            "value": "chefboothnic1"
+        },
+        "vmExtensionName": {
+            "value": "setupscript"
+        },
+        "client_rb": {
+            "value": "
+                log_level        :info
+                log_location     STDOUT
+
+                chef_server_url  \"https://chefserverdemowestus.cloudapp.net/organizations/partsunlimited\"
+                validation_client_name \"partsunlimited-validator\"
+                client_key        \"/etc/chef/client.pem\"
+                validation_key    \"/etc/chef/validation.pem\"
+                ssl_verify_mode :verify_none
+                
+                node_name \"CHEFBOOTH1\"
+                "
+            },        
+        "runlist": {
+            "value": "recipe[ChefConfWebApp]"
+        },
+
+        "validation_key": {
+            "value": "
+            -----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA1RM74uQTK7p8UGxFXL8lGlLf7ahCmqil8O/AUqPhmCRiasKo
+VsdM9fxhDFxC6MzrCujgZWCuqZmlenqcOe08ahEChHjVrojzeIQPHsCnZpQ5o0xp
+2i7JEtfIoZU6wevm4us/Z79cIOG/CfFBs0X2MmvJx5Yi5S/DVgjqGeJAgBXeCiYJ
+1JolbefUwknWFJHU5tkTYBBcUy3WABl5iDEttXPVdnYQuaU3Vh8oR2ONzWflR1HO
+cJ2E8jyTY9ObKU80iGvyO+BQH69c8OCc1OEhoHPGo3TYGe3bD6in94Qu59xm8ip1
+GA/WhcRJbzwNNhv/4GWwU+fI5j5rXfXCM1afhQIDAQABAoIBABRHIVLle8GUnNIW
+i79Y3ZIUwwTeF4CafjhgyL/UotqU09zvK5AepX9fhmjjuuZm4hOGuBxNyDGR0sLG
+Omn03uQFPGUZDtTuaaVVhA7cLNJBVv7ofcZq323wpUJjblUYOz/rPXyFJKJoeYLb
+t/H0vYps4aYh7q47Dm74qDbQZm0J+zTvDLQ3cAzyyP8lcARIXwHDipVDeBV63P/H
+NsinGWHJP6cALcjwlHJAoE8linXOMGMJnswde3IfGVHh6KI+vkVapBJTpL9K20kW
+e42Ii8FYuGt9oXETwoa9dz6Xjn6vfEOgBSxXkzEG5sehVBQg3QH6azs9428Khb5c
++SP8ceECgYEA9gppAzE23szmMVDRouTp8IByk/wmrwVR0liGkmSQYThKCrPgyYp4
+/LdoSIvQ/r5zXpY+TkVOlM3KDB9qquZERYR/hkt0FK8zbD776xgPj8uzP3LVSV4L
+2MkVaXUKfvDBM/xTxVCtlNNFmW7MUwty8lfBOarVZia8B0SGqLKW4ykCgYEA3bM4
+IsjQu6Ipk+5PzfrQg+WT1qkneh9l8reyKAmRsVJTuO+oafxieaGqqRHQorR2613g
+fO/8fvSbbrkNLlDxDcuc5jbzTznT9XVcZbiLvVf0YMNGvPaHRhppIduNTbFUdZ0L
+ubztdexdct0ChHXmH2+g18moLHKsmDDM6J6bIP0CgYEAqGwL4pGH3BAq60tFldpZ
+gbaLuF19JYXgsrrCs+d/Je3gUV882vmdRHFQQ4jiMd+xHeh/EhlDZ31Pd+jxnbcu
+uN+wY/+2oIomC006KX44+NgaBa7X7fcg6O8NZzklTCwGNU3fEkzd5eiR1iwQVjCa
+KOaFcLJOjjSptdfkzgoiW7ECgYAy7M4CP3qi/xbp4h32xJxND9krv+NPjBLQ9B06
+UShkQPL2UiavYcgFBHu9Jlh0Z1vBqOi+CipHx0xE3MEIWJNmhdTelNTC6BemFHVK
+8F84+RErgO+ozEA6fCqWGmaU6Bzsf0yIN7ucENVOYzIG10YrBms95hZ5T0YSF3Oa
+I4SiyQKBgQDCMwWJGeYTa36P3yVN+kZU4krO/6gwGVejC+GKkxidJfcl2YfFx/qZ
+jeZWbXr/6RN5XPpEchy9BaSd4MXpaZTgyDvUXxLsRJ3lWMEQq08+QC9s3n2zCu/5
+pq0In8t1xZYMZ3JHoYgeTvSkNys82gE7cbuF9kh4jkJTcv3KfAQbrg==
+-----END RSA PRIVATE KEY-----
+"
+        }
+    }
+}
