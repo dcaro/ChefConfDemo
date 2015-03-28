@@ -1,4 +1,11 @@
-﻿# Deploy Chef VM 
+﻿####Connect to the propera subscription ####
+$SubscriptionName = "Azure-Vendor"
+Switch-AzureMode AzureResourceManager 
+Add-AzureAccount 
+Select-AzureSubscription $SubscriptionName 
+
+
+# Deploy Chef VM 
 #### Deployment of MRP ######
 $RGName = "ChefBooth1"
 $DeploymentName = "ChefBoothDeploy1"
