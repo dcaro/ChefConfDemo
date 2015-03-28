@@ -20,13 +20,15 @@ chef-client -z -o 'SampleWebsite::CleanDemo'
 #On BOOTH VM2 
 #Demo 1
 Create a file using dsc_resource resource from chef
-chef-client -z -o 'SampleWebsite::SimpleWeb'
+chef-client -z -o 'SampleWebsite::SimpleFileChefDSC'
 
 #Demo 2
 Create a Website using dsc_resource resource from chef
-chef-client -z -o 'SampleWebsite::SimpleWeb'
+chef-client -z -o 'SampleWebsite::SimpleDSCChefWeb'
 
 #Demo 3
 Create the bakery website using the Bakrey website 
 chef-client -z -o 'SampleWebsite::Bakery'
+
+##Cleand Demo Environement
 

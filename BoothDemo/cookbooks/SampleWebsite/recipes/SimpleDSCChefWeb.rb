@@ -8,8 +8,8 @@ service "w3svc" do
   action [:enable, :start ]
 end
 
-template "c:\\inetpub\\wwwroot\\Default.htm" do
-    source "Default.htm.erb"
+template "c:\\inetpub\\wwwroot\\default.htm" do
+    source "default.htm.erb"
     rights :read, "Everyone"
     variables(
         :site_name => "Clows"        
