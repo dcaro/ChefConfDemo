@@ -1,0 +1,16 @@
+{
+"client_rb":"
+
+                       chef_server_url  \"https://api.opscode.com/organizations/dpedemo\"
+                       validation_client_name \"dpedemo-validator\"
+                       client_key        \"c:/demo/Chef-Demo/chef-repo/.chef/dpedemo-validator.pem\"
+                       validation_key    \"c:/demo/Chef-Demo/chef-repo/.chef/dpedemo-validator.pem\"
+                       
+                       file_cache_path   \"c:/chef/cache\"
+                       file_backup_path  \"c:/chef/backup\"
+
+                       
+                       node_name \"AzureVM5\"
+                       ",
+"runlist":"recipe[MyAzureCookbook]" 
+}
